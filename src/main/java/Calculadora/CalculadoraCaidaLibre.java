@@ -30,22 +30,47 @@ public class CalculadoraCaidaLibre {
             } else {
                 return Math.sqrt(Math.pow(vf, 2) + 2 * g * h);
             }
-        }else{
-            return vf+g*t;
+        } else {
+            return vf + g * t;
         }
     }
 
-    public double calcularVelocidadFinal(String vo, String h, String t) {
+    public double calcularVelocidadFinal(String voString, String hString, String tString) {
+        vo = voString == null || voString.isEmpty() ? null : Double.valueOf(voString);
+        h = hString == null || hString.isEmpty() ? null : Double.valueOf(hString);
+        t = tString == null || tString.isEmpty() ? null : Double.valueOf(tString);
+        if (t == null) {
+            if (vo == 0) {
+                return Math.sqrt(2 * g * h);
+            } else {
+                return Math.sqrt(Math.pow(vo, 2) + 2 * g * h);
+            }
 
-        return 0;
+        } else {
+            return vo + -g * t;
+        }
     }
 
-    public double calcularAltura(String vo, String vf, String t) {
-        return 0;
+    public double calcularAltura(String voString, String vfString, String tString) {
+        vo = voString == null || voString.isEmpty() ? null : Double.valueOf(voString);
+        vf = vfString == null || vfString.isEmpty() ? null : Double.valueOf(vfString);
+        t = tString == null || tString.isEmpty() ? null : Double.valueOf(tString);
+        if (t == null) {
+            return (Math.pow(vf, 2) - Math.pow(vo, 2)) / (2 * g);
+        } else {
+            return  g * Math.pow(t, 2) / 2;
+        }
     }
 
-    public double calcularTiempo(String vo, String vf, String h) {
-        return 0;
+    public double calcularTiempo(String voString, String vfString, String hString) {
+        vo = voString == null || voString.isEmpty() ? null : Double.valueOf(voString);
+        vf = vfString == null || vfString.isEmpty() ? null : Double.valueOf(vfString);
+        h = hString == null || hString.isEmpty() ? null : Double.valueOf(hString);
+        if (h != null) {
+            return Math.sqrt((2 * h) / (g));
+        } else {
+            return (vf - vo) / (2 * g);
+        }
     }
 
     public Double getVo() {

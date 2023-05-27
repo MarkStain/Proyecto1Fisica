@@ -51,6 +51,8 @@ public class CaidaLibre extends javax.swing.JFrame {
         tfAltura = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         tfTiempo = new javax.swing.JTextField();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
 
         jButton1.setText("jButton1");
 
@@ -88,6 +90,16 @@ public class CaidaLibre extends javax.swing.JFrame {
         jLabel5.setText("Altura (H)");
 
         jLabel6.setText("Tiempo (t)");
+
+        jMenu2.setText("Regresar");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,7 +166,7 @@ public class CaidaLibre extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(30, 30, 30))
         );
@@ -210,14 +222,22 @@ public class CaidaLibre extends javax.swing.JFrame {
             tfVelocidadIncial.setText(vo.toString());
         } else if (isVelocidadFinal) {
             vf = calculadora.calcularVelocidadFinal(tfVelocidadIncial.getText(), tfAltura.getText(), tfTiempo.getText());
+            tfVelocidadFinal.setText(vf.toString());
         } else if (isAltura) {
             h = calculadora.calcularAltura(tfVelocidadIncial.getText(), tfVelocidadFinal.getText(), tfTiempo.getText());
+            tfAltura.setText(h.toString());
         } else if (isTiempo) {
             t = calculadora.calcularTiempo(tfVelocidadIncial.getText(), tfVelocidadFinal.getText(), tfAltura.getText());
+            tfTiempo.setText(t.toString());
         }
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -233,6 +253,8 @@ public class CaidaLibre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTextField tfAltura;
     private javax.swing.JTextField tfGravedad;
     private javax.swing.JTextField tfTiempo;
